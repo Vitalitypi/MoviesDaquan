@@ -6,11 +6,21 @@ const app = express()
 app.use(express.json())
 
 app.all('/', async (req, res) => {
-  console.log('消息推送', req.body)
+  console.log('消息推送', req.body,typeof(req.body))
+  console.log(req.body['MsgType'])
   // 从header中取appid，如果from-appid不存在，则不是资源复用场景，可以直接传空字符串，使用环境所属账号发起云调用
   const appid = req.headers['x-wx-from-appid'] || ''
   const { ToUserName, FromUserName, MsgType, Content, CreateTime } = req.body
   console.log('推送接收的账号', ToUserName, '创建时间', CreateTime)
+  if (req.body['MsgType']=='event' && req.body['Event']=='user_enter_tempsession'){
+    await sendmess(appid, {
+      touser: FromUserName,
+      msgtype: 'text',
+      text: {
+        content: '这是一个小程序播放器，<a href="weixin://bizmsgmenu?msgmenucontent='+req.body['SessionFrom']+'&msgmenuid=1">点我发送您的链接</a>，可以获取播放页面！',
+      }
+    })
+  }
   if (MsgType === 'text') {
     if (Content === '回复文字') { // 小程序、公众号可用
       await sendmess(appid, {
@@ -80,8 +90,6 @@ app.all('/', async (req, res) => {
         }
       })
     }
-    res.send('success')
-  } else {
     res.send('success')
   }
 })
