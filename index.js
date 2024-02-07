@@ -33,7 +33,7 @@ app.all('/', async (req, res) => {
       msgtype: 'miniprogrampage',
       miniprogrampage: {
         title: '在线播放',
-        pagepath: 'pages/index/index', // 跟app.json对齐，支持参数，比如pages/index/index?foo=bar
+        pagepath: 'pages/play/play?vdUrl='+Content, // 跟app.json对齐，支持参数，比如pages/index/index?foo=bar
         thumb_media_id: 'w0X_O7SkQ5qzylq54jWjmsCGzV1k1uB2MClIMDAtdTCICbbT-y6blfJpwoJqatO6'
       }
     })
