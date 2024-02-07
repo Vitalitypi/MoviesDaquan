@@ -34,7 +34,7 @@ app.all('/', async (req, res) => {
       miniprogrampage: {
         title: '在线播放',
         pagepath: 'pages/index/index', // 跟app.json对齐，支持参数，比如pages/index/index?foo=bar
-        // thumb_media_id: 'XrfwjfAMf820PzHu9s5GYgOJbfbnoUucToD7A5HFbBM6_nU6TzR4EGkCFTTHLo0t'
+        thumb_media_id: 'w0X_O7SkQ5qzylq54jWjmsCGzV1k1uB2MClIMDAtdTCICbbT-y6blfJpwoJqatO6'
       }
     })
     res.send('success')
