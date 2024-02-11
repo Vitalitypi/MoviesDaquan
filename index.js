@@ -21,10 +21,7 @@ app.all('/', async (req, res) => {
       touser: FromUserName,
       msgtype: 'text',
       text: {
-        content: '「热辣滚烫 108...（净版）.zip」，复制整段内容，打开最新版「夸克APP」即可获取。
-无需下载在线播放视频，畅享原画5倍速，支持电视投屏。
-/!56b632tfmJ!:/
-链接：https://pan.quark.cn/s/89ab00431eeb\n\n这是一个小程序播放器，<a href="weixin://bizmsgmenu?msgmenucontent='+link+'&msgmenuid=1">点我发送您的链接</a>，可以获取播放页面！',
+        content: '热辣滚烫 链接：https://pan.quark.cn/s/89ab00431eeb\n\n这是一个小程序播放器，<a href="weixin://bizmsgmenu?msgmenucontent='+link+'&msgmenuid=1">点我发送您的链接</a>，可以获取播放页面！',
       }
     })
     res.send('success')
