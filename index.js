@@ -21,7 +21,7 @@ app.all('/', async (req, res) => {
       touser: FromUserName,
       msgtype: 'text',
       text: {
-        content: '热辣滚烫 链接：https://pan.quark.cn/s/89ab00431eeb\n\n这是一个小程序播放器，<a href="weixin://bizmsgmenu?msgmenucontent='+link+'&msgmenuid=1">点我发送您的链接</a>，可以获取播放页面！',
+        content: '热辣滚烫最新链接：https://pan.quark.cn/s/65f34251a00a\n\n这是一个小程序播放器，<a href="weixin://bizmsgmenu?msgmenucontent='+link+'&msgmenuid=1">点我发送您的链接</a>，可以获取播放页面！',
       }
     })
     res.send('success')
