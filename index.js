@@ -45,9 +45,8 @@ app.all('/', async (req, res) => {
         }
       })
     }
-    
-    res.send('success')
   }
+  res.send('success')
 })
 
 app.listen(80, function () {
