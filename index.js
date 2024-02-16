@@ -11,11 +11,8 @@ app.all('/', async (req, res) => {
   const appid = req.headers['x-wx-from-appid'] || ''
   const { ToUserName, FromUserName, MsgType, Content, CreateTime } = req.body
   console.log('推送接收的账号', ToUserName, '创建时间', CreateTime)
-  if (req.body['MsgType']=='event' && req.body['Event']=='user_enter_tempsession'){
+  if (req.body['MsgType']=='event' && req.body['Event']=='user_enter_tempsession'&&req.body['SessionFrom']!=''){
     let link = req.body['SessionFrom']
-    if(link==''){
-      link = 'http://www.aiyou.ink'
-    }
     await sendmess(appid, {
       touser: FromUserName,
       msgtype: 'text',
@@ -41,7 +38,7 @@ app.all('/', async (req, res) => {
         touser: FromUserName,
         msgtype: 'text',
         text: {
-          content: '热辣滚烫最新链接：https://pan.quark.cn/s/65f34251a00a\n\n这是一个小程序播放器，<a href="weixin://bizmsgmenu?msgmenucontent='+'https://www.aiyou.ink'+'&msgmenuid=1">发送您的链接</a>，可以获取播放页面！',
+          content: '热辣滚烫最新链接：https://pan.quark.cn/s/65f34251a00a\n\n这是一个小程序播放器，<a href="weixin://bizmsgmenu?msgmenucontent='+'https://www.aiyou.ink'+'&msgmenuid=1">发送您的链接</a>，可以获取播放页面！\n请返回小程序再次进入客服页面，才能正常访问！',
         }
       })
     }
